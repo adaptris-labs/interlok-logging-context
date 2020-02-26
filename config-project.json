@@ -1,0 +1,11 @@
+{
+  "name" : "MyInterlokInstance",
+  "variableSets" : {
+    "default" : { },
+    "local-dev" : { }
+  },
+  "variableXpaths" : { },
+  "uidInXincludeCompntListFileName" : false,
+  "xincludeXpaths" : { },
+  "structured" : true
+}
