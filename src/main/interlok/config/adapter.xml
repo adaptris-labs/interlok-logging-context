@@ -23,6 +23,104 @@
   </failed-message-retrier>
   <channel-list>
     <channel>
+      <consume-connection class="null-connection">
+        <unique-id>stupefied-brahmagupta</unique-id>
+      </consume-connection>
+      <produce-connection class="null-connection">
+        <unique-id>focused-hoover</unique-id>
+      </produce-connection>
+      <workflow-list>
+        <standard-workflow>
+          <consumer class="fs-consumer">
+            <unique-id>cranky-goldberg</unique-id>
+            <destination class="configured-consume-destination">
+              <destination>./fs/fs-consumer</destination>
+            </destination>
+            <poller class="random-interval-poller"/>
+            <create-dirs>true</create-dirs>
+            <file-sorter class="fs-sort-none"/>
+            <wip-suffix>.wip</wip-suffix>
+          </consumer>
+          <service-collection class="service-list">
+            <unique-id>condescending-easley</unique-id>
+            <services>
+              <clone-message-service-list>
+                <unique-id>clone message</unique-id>
+                <override-metadata>true</override-metadata>
+                <services>
+                  <service-list>
+                    <services>
+                      <add-metadata-service>
+                        <metadata-element>
+                          <key>oauth_client_id</key>
+                          <value>pBWk0SmIcgZUurdm7pgiiMd5xYzV8avV</value>
+                        </metadata-element>
+                      </add-metadata-service>
+                      <payload-from-metadata-service>
+                        <unique-id>30557bef-aed4-45d7-8dd8-d36531f751da</unique-id>
+                        <metadata-tokens>
+                          <key-value-pair>
+                            <key>oauth_client_id</key>
+                            <value>__CLIENTID__</value>
+                          </key-value-pair>
+                        </metadata-tokens>
+                        <template>{"client_id":"__CLIENTID__"}</template>
+                      </payload-from-metadata-service>
+                      <log-message-service/>
+                    </services>
+                  </service-list>
+                </services>
+              </clone-message-service-list>
+              <clone-message-service-list>
+                <unique-id>clone message</unique-id>
+                <override-metadata>true</override-metadata>
+                <services>
+                  <service-list>
+                    <services>
+                      <add-metadata-service>
+                        <metadata-element>
+                          <key>oauth_client_id</key>
+                          <value>pBWk0SmIcgZUurdm7pgiiMd5xYzV8avV</value>
+                        </metadata-element>
+                      </add-metadata-service>
+                      <payload-from-metadata-service>
+                        <unique-id>30557bef-aed4-45d7-8dd8-d36531f751da</unique-id>
+                        <metadata-tokens>
+                          <key-value-pair>
+                            <key>oauth_client_id</key>
+                            <value>__CLIENTID__</value>
+                          </key-value-pair>
+                        </metadata-tokens>
+                        <template>{"client_id":"__CLIENTID__"}</template>
+                      </payload-from-metadata-service>
+                      <log-message-service/>
+                    </services>
+                  </service-list>
+                </services>
+              </clone-message-service-list>
+            </services>
+          </service-collection>
+          <producer class="null-message-producer">
+            <unique-id>hopeful-davinci</unique-id>
+          </producer>
+          <produce-exception-handler class="null-produce-exception-handler"/>
+          <unique-id>consumer</unique-id>
+          <message-metrics-interceptor>
+            <unique-id>gigantic-davinci-MessageMetrics</unique-id>
+            <timeslice-duration>
+              <unit>MINUTES</unit>
+              <interval>5</interval>
+            </timeslice-duration>
+            <timeslice-history-count>12</timeslice-history-count>
+          </message-metrics-interceptor>
+          <in-flight-workflow-interceptor>
+            <unique-id>gigantic-davinci-InFlight</unique-id>
+          </in-flight-workflow-interceptor>
+        </standard-workflow>
+      </workflow-list>
+      <unique-id>filesystem</unique-id>
+    </channel>
+    <channel>
       <consume-connection class="jetty-embedded-connection">
         <unique-id>jetty</unique-id>
       </consume-connection>
@@ -48,7 +146,7 @@
                 <script><![CDATA[var failNext_index = Math.floor((Math.random() * 2));
 var failNext_values = [ "true", "false"];
 message.addMetadata('failure', failNext_values[failNext_index]);
-                ]]></script>
+                ]]>                </script>
               </embedded-scripting-service>
               <if-then-otherwise>
                 <unique-id>shall-i-fail</unique-id>
@@ -126,7 +224,7 @@ message.addMetadata('failure', failNext_values[failNext_index]);
           </services>
         </processing-exception-service>
       </message-error-handler>
-      <unique-id>fervent-tesla</unique-id>
+      <unique-id>jetty</unique-id>
     </channel>
   </channel-list>
   <message-error-digester class="standard-message-error-digester">
