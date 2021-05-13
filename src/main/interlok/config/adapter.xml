@@ -31,22 +31,15 @@
       </produce-connection>
       <workflow-list>
         <standard-workflow>
-          <consumer class="fs-consumer">
+          <consumer class="polling-trigger">
             <unique-id>cranky-goldberg</unique-id>
-            <destination class="configured-consume-destination">
-              <destination>./fs/fs-consumer</destination>
-            </destination>
             <poller class="random-interval-poller"/>
-            <create-dirs>true</create-dirs>
-            <file-sorter class="fs-sort-none"/>
-            <wip-suffix>.wip</wip-suffix>
           </consumer>
           <service-collection class="service-list">
             <unique-id>condescending-easley</unique-id>
             <services>
               <clone-message-service-list>
                 <unique-id>clone message</unique-id>
-                <override-metadata>true</override-metadata>
                 <services>
                   <service-list>
                     <services>
@@ -56,7 +49,7 @@
                           <value>pBWk0SmIcgZUurdm7pgiiMd5xYzV8avV</value>
                         </metadata-element>
                       </add-metadata-service>
-                      <payload-from-metadata-service>
+                      <payload-from-template>
                         <unique-id>30557bef-aed4-45d7-8dd8-d36531f751da</unique-id>
                         <metadata-tokens>
                           <key-value-pair>
@@ -65,7 +58,7 @@
                           </key-value-pair>
                         </metadata-tokens>
                         <template>{"client_id":"__CLIENTID__"}</template>
-                      </payload-from-metadata-service>
+                      </payload-from-template>
                       <log-message-service/>
                     </services>
                   </service-list>
@@ -73,7 +66,6 @@
               </clone-message-service-list>
               <clone-message-service-list>
                 <unique-id>clone message</unique-id>
-                <override-metadata>true</override-metadata>
                 <services>
                   <service-list>
                     <services>
@@ -83,7 +75,7 @@
                           <value>pBWk0SmIcgZUurdm7pgiiMd5xYzV8avV</value>
                         </metadata-element>
                       </add-metadata-service>
-                      <payload-from-metadata-service>
+                      <payload-from-template>
                         <unique-id>30557bef-aed4-45d7-8dd8-d36531f751da</unique-id>
                         <metadata-tokens>
                           <key-value-pair>
@@ -92,7 +84,7 @@
                           </key-value-pair>
                         </metadata-tokens>
                         <template>{"client_id":"__CLIENTID__"}</template>
-                      </payload-from-metadata-service>
+                      </payload-from-template>
                       <log-message-service/>
                     </services>
                   </service-list>
@@ -131,9 +123,7 @@
         <standard-workflow>
           <consumer class="jetty-message-consumer">
             <unique-id>modest-raman</unique-id>
-            <destination class="configured-consume-destination">
-              <destination>/api/logging</destination>
-            </destination>
+            <path>/api/logging</path>
             <parameter-handler class="jetty-http-ignore-parameters"/>
             <header-handler class="jetty-http-ignore-headers"/>
           </consumer>
@@ -170,12 +160,12 @@ message.addMetadata('failure', failNext_values[failNext_index]);
                   <service class="service-list">
                     <unique-id>success</unique-id>
                     <services>
-                      <payload-from-metadata-service>
+                      <payload-from-template>
                         <unique-id>overwrite-payload</unique-id>
                         <metadata-tokens/>
                         <template><![CDATA[{"workflow":"success"}]]></template>
                         <multi-line-expression>false</multi-line-expression>
-                      </payload-from-metadata-service>
+                      </payload-from-template>
                     </services>
                   </service>
                 </otherwise>
