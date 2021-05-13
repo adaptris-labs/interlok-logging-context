@@ -1,6 +1,6 @@
 ext {
-  interlokParentGradle = "https://raw.githubusercontent.com/adaptris-labs/interlok-build-parent/master/build.gradle"
-  interlokVersion = '3.9.3-RELEASE'
+  interlokParentGradle = "https://raw.githubusercontent.com/adaptris/interlok-build-parent/main/v3/build.gradle"
+  interlokVersion= '3.10.2-RELEASE'
 }
 
 allprojects {
@@ -15,15 +15,7 @@ configurations.all {
 
 dependencies {
   interlokRuntime ("com.adaptris:interlok-json:$interlokVersion") { changing=true }
-  interlokRuntime ("com.adaptris:interlok-profiler:3.10-SNAPSHOT") {
-    // We exclude interlok-core etc so that you can change the
-    // interlokVersion='3.9.3-RELEASE' and not have
-    // dependency management evict it since 3.10-SNAP is "more recent"
-    exclude group: "com.adaptris", module: "interlok-core"
-    exclude group: "com.adaptris", module: "interlok-core-apt"
-    exclude group: "com.adaptris", module: "interlok-common"
-    changing=true
-  }
+  interlokRuntime ("com.adaptris:interlok-profiler:$interlokVersion") { changing=true }
   interlokRuntime ("commons-lang:commons-lang:2.6")
 
   interlokJavadocs group: "com.adaptris", name: "interlok-json", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
