@@ -1,5 +1,5 @@
 ext {
-  interlokParentGradle = "https://raw.githubusercontent.com/adaptris/interlok-build-parent/main/v3/build.gradle"
+  interlokParentGradle = "https://raw.githubusercontent.com/adaptris/interlok-build-parent/main/v4/build.gradle"
 }
 
 allprojects {
@@ -15,7 +15,6 @@ configurations.all {
 dependencies {
   interlokRuntime ("com.adaptris:interlok-json:$interlokVersion") { changing=true }
   interlokRuntime ("com.adaptris:interlok-profiler:$interlokVersion") { changing=true }
-  interlokRuntime ("commons-lang:commons-lang:2.6")
 
   interlokJavadocs group: "com.adaptris", name: "interlok-json", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
 
