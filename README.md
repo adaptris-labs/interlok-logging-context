@@ -1,6 +1,6 @@
 # interlok-logging-context [![check](https://github.com/adaptris-labs/interlok-logging-context/actions/workflows/gradle.yml/badge.svg)](https://github.com/adaptris-labs/interlok-logging-context/actions/workflows/gradle.yml)
 
-The suggested name was `supreme-octo-couscous`; This is the example project that is referred to by https://interlok.adaptris.net/interlok-docs/advanced-profiler-logging-context.html
+The suggested name was `supreme-octo-couscous`; This is the example project that is referred to by https://interlok.adaptris.net/interlok-docs/#/pages/advanced/advanced-profiler-logging-context
 
 ## Getting started
 
